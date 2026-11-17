@@ -34,8 +34,8 @@ jobs:
         with:
           context: ./
           push: true
-          dockerfile: ./Dockerfile   # Specify the path to your Dockerfile here
-          tags: moisesgc/webacademy:latest
+          file: ./Dockerfile   # Specify the path to your Dockerfile here
+          tags: samlima010/webacademy:latest
   deploy:
     needs: lint
     name: Setup Gcloud Account
@@ -69,4 +69,4 @@ jobs:
 
       # deploy image
       - name: Deploy Docker image
-        run: gcloud run deploy wacicd --image $IMAGE_NAME --region us-west1 --memory 128Mi --min-instances 0 --max-instances 1 --platform managed --port 8080 --allow-unauthenticated
+        run: gcloud run deploy wacicd --image $IMAGE_NAME --region us-west1 --memory 128Mi --min-instances 0 --max-instances 1 --platform managed --port 8081 --allow-unauthenticated
